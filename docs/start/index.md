@@ -6,10 +6,12 @@ nav_order: 1
 
 ## Inhaltsverzeichnis
 
-- [Start](#start)
+- [Teammitglieder](#teammitglieder)
 - [Unser Projekt](#unser-projekt)
 - [Aufteilung](#aufteilung)
 - [How to Run the Code](#how-to-run-the-code)
+
+Präsentationsfolie aus der mündlichen Prüfungsleistung [hier](Präsentationsfolien-fswd.pdf)
 
 ## Teammitglieder
 

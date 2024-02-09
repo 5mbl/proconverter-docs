@@ -153,3 +153,33 @@ Bild-Quelle: [cs.fau.de](https://www4.cs.fau.de/Lehre/SS04/PS_KVBK/talks/Handout
 ### Serverseite
 
 Die Serverseite beinhaltet die Logik und Datenverarbeitung, die auf dem Server stattfindet. In ProConverter wird das Backend mit Flask, einem Python-Webframework, und weiteren Python-Bibliotheken wie PyTesseract für OCR-Aufgaben, pdf2image für die Konvertierung von PDF-Dokumenten in Bilder und SQLAlchemy für die Datenbankinteraktion entwickelt. Das Backend ist auch verantwortlich für die Verarbeitung von Anfragen, die vom Frontend kommen, einschließlich der Ausführung von Dateikonvertierungen und der Verwaltung von Benutzerdaten. Es kommuniziert mit dem Frontend über dem Aufrufen der Methoden, um Daten auszutauschen und Konvertierungsergebnisse zurückzusenden.
+
+### User-Auth
+
+Die Benutzerauthentifizierung (User-Authentication) mit Benutzername und Passwort umfasst eine Reihe von Schritten, um die Identität zu überprüfen und Benutzern sicher Zugriff zu gewähren. Zuerst gibt der Benutzer seinen Benutzernamen und sein Passwort über die „register page“ auf der Website ein. Der Server validiert die Eingabe, um sicherzustellen, dass sie den Anforderungen entspricht. Wenn die Eingabe gültig ist, speichert der Server die Benutzerinformationen sicher in der Datenbank und hashed das Passwort.
+
+Um auf das Konto zuzugreifen, geben die Benutzer ihren Benutzernamen und ihr Passwort in das Anmeldeformular in der „login page“ ein. Die Front-End sendet die Anmeldeanfrage an den Server, der die bereitgestellten Anmeldeinformationen überprüft, indem er überprüft, ob der Benutzername in der Datenbank existiert und ob der Passworthash mit dem gespeicherten Hash übereinstimmt.
+
+Wenn die Anmeldeinformationen korrekt sind, richtet der Server eine Sitzung für den Benutzer ein. Nach erfolgreichem Login generiert der Server eine eindeutige Sitzungs-ID für den Benutzer.
+
+Zusammenfassend umfasst die Benutzerauthentifizierung mit Benutzername und Passwort, dass Benutzer ihre Anmeldeinformationen registrieren, der Server diese während des Anmeldevorgangs überprüft, und die Einrichtung einer Sitzung für authentifizierte Benutzer, die einen sicheren und personalisierten Zugriff auf die Webanwendung ermöglicht.
+
+### OCR
+
+OCR steht ,,für Optical Character Recognition” und wird in unserem Projekt ebenfalls genutzt.
+Diese Technologie ermöglicht es aufgenommene Bilder, welche Texte und Zeichen enthalten,
+zu scannen und anschließend zu bearbeiten. In unserer Anwendung bieten wir einen
+Converter, der darauf zurückgreift. OCR selbst funktioniert mit Mustererkennung, bei dem es
+im Hintergrund einen Datenbankabgleich durchführt, um Zusammenhänge zwischen Worten
+und Sätzen aufzufinden.
+Der Scan wird in 5 unterschiedlichen Phasen unterteilt:
+Im ersten Schritt wird das Bild so gut es geht für den Scan formatiert (schwarz/weiß
+Kontraste) und Absätze sowie Überschriften kenntlich gemacht.
+Daraufhin schaut das System nach grafischen Elementen noch bevor Buchstaben
+entschlüsselt werden, in dem es das Dokument Zeile für Zeile durchgeht.
+Anschließend werden Schriftzeichen interpretiert, während das System durch die Datenbank
+läuft, damit man am Ende weiß, um welche Buchstaben und Zeichen es sich handelt.
+Im nächsten Schritt wird meistens eine Nachbearbeitung durchgeführt (ICR), was eine Art
+Autokorrektur vom Text bildet.
+Zuletzt wird der Text in ein gewünschtes Dateiformat umgewandelt und kann nun vom
+Nutzer verwendet werden.

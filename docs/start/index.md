@@ -55,7 +55,7 @@ Sollten Sie die Applikation noch nicht in Betrieb genommen haben, finden Sie im 
 
 **Serdar:** Upload-Funktionalität in allen Konverter
 
-**Samed:** Login/Registrierungsseite#
+**Samed:** Login/Registrierungsseite
 
 **Alle Teammitglieder:** Konvertierung & Download-Funktionalität
 
